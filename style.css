@@ -1,0 +1,137 @@
+:root {
+    --gold: #b38e5d;
+    --cream: #fffcf2;
+    --dark: #4a3728;
+}
+
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+}
+
+/* حل مشكلة مقاس الصورة */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* يضمن ظهور كامل الصورة وتفاصيلها دون قص */
+}
+
+/* السلة المفعلة */
+.cart-nav {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: 2px solid var(--gold);
+    font-weight: bold;
+    color: var(--gold);
+    z-index: 10;
+}
+
+/* زر تسوقي الآن */
+.shop-btn {
+    position: absolute;
+    bottom: 60px;
+    background: var(--gold);
+    color: white;
+    padding: 15px 45px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+/* تنسيق الأقسام والمربعات */
+.store-section { padding: 60px 20px; text-align: center; }
+.title { color: var(--gold); font-size: 32px; margin-bottom: 30px; }
+
+.tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+.tab-item {
+    background: white;
+    border: 1px solid var(--gold);
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.tab-item:hover { background: var(--gold); color: white; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; }
+.card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.card img { width: 100%; height: 250px; object-fit: cover; }
+.card-info { padding: 15px; }
+.add-btn {
+    background: var(--gold);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+
+
+    /* ===================================================
+   كود التجاوب التلقائي والمؤكد لضبط الخطوط والعرض على التلفونات
+   (يُضاف في النهاية دون تغيير أي شيء من أكوادكِ السابقة)
+   =================================================== */
+
+@media screen and (max-width: 768px) {
+    /* ضبط تلقائي ومرن للخطوط لكي تلائم أي شاشة تلفون */
+    h1, .hero-section h1, .hero h1 {
+        font-size: 1.7rem !important; /* حجم ملكي متناسق مش كبير ولا صغير */
+        line-height: 1.4 !important;
+        white-space: normal !important; /* يمنع تقطع النص بشكل طولي مربش */
+        text-align: center !important;
+    }
+
+    h2, h3 {
+        font-size: 1.3rem !important;
+        text-align: center !important;
+    }
+
+    p, span, a, button {
+        font-size: 0.95rem !important; /* خط واضح ومريح للقراءة على الجوال */
+    }
+
+    /* ضبط الحاوية الشفافة (hero) لكي تتوسط الشاشة تلقائياً بحجم ملائم */
+    .hero, [class*="hero"] {
+        width: 92% !important;
+        max-width: 360px !important;
+        padding: 15px !important;
+        margin: 0 auto !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        float: none !important;
+    }
+
+    /* حماية القائمة الجانبية (الأشرطة) لكي تظهر فوق كل شيء بدون تداخل */
+    .sidebar-menu, [class*="sidebar"] {
+        z-index: 99999 !important;
+    }
+
+    /* جعل الأقسام تترتب تحت بعضها أو بشكل صفوف مرنة مريحة للعين */
+    [class*="content"], [class*="container"] {
+        width: 100% !important;
+        padding: 10px !important;
+    }
+}
+}
